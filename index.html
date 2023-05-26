@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prijava</title>
+  <style>
+    .batman-container {
+      width: 200px;
+      height: 250px;
+      background-color: #212121;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .batman-button {
+      width: 100px;
+      height: 40px;
+      background-color: #ff8c00;
+      color: #fff;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .batman-button:hover {
+      background-color: #d2691e;
+    }
+
+    .error-message {
+      color: #ff0000;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+  </style>
+  <script>
+    function validateForm() {
+      var username = document.getElementById("username").value;
+      var errorMessage = document.getElementById("error-message");
+
+      if (username.indexOf("@") === -1) {
+        errorMessage.textContent = "Korisnicko ime je pogresno";
+        errorMessage.style.display = "block";
+        document.getElementById("username").style.backgroundColor = "#ffcccc";
+        return false;
+      }
+
+      errorMessage.style.display = "none";
+      document.getElementById("username").style.backgroundColor = "";
+    }
+  </script>
+</head>
+<body>
+  <div class="batman-container">
+    <h2>Betmen Prijava</h2>
+    <form onsubmit="return validateForm()">
+      <label for="username">Korisnicko ime:</label>
+      <input type="text" id="username" name="username" required><br>
+      <div id="error-message" class="error-message"></div><br>
+
+      <label for="password">Sifra:</label>
+      <input type="password" id="password" name="password" required><br><br>
+
+      <input type="submit" value="Login" class="batman-button">
+    </form>
+  </div>
+</body>
+</html>
